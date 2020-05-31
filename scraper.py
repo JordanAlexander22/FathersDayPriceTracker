@@ -37,4 +37,13 @@ def check_price():
         print(converted_price)
         print(title)
 
+
+# using smpt library to setup server and establish connection
 def send_mail():
+    server = smtplib.SMTP('smtp.gmail.com', 587)
+    server.ehlo()
+    server.starttls()
+    server.ehlo()
+
+    #authorization credentials
+    #server.login()
