@@ -15,9 +15,16 @@ soup2 = BeautifulSoup(soup1.prettify(), "html.parser")
 
 #print(soup.prettify()) to for sanity check
 
-title = soup2.find('span', {'class': "product-price ng-star-inserted"})
+price = soup2.find('span', {'class': "product-price ng-star-inserted"}).get_text().strip()  #necessary steps to parse through javascript as html
+title = soup2.find('h1', {'class': "title"}).get_text()
 
-print(title)
+#print(price.strip())
+
+#need to convert price to a number rather than a string
+
+converted_price = price[1:7]
+
+print(converted_price)
 
 
 
